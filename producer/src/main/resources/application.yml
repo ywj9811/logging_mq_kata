@@ -1,0 +1,42 @@
+logging:
+  level:
+    org.springframework.web.reactive.function.client.ExchangeFunctions: DEBUG
+spring:
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
+    # RabbitMQ queue, exchange, routing-key ??
+    queue:
+      name: sample.queue
+    exchange:
+      name: sample.exchange
+    routing:
+      key: sample.key
+
+  datasource:
+    url: jdbc:mysql://localhost:3306/logging_kata
+    username: root
+    password:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  # mongodb
+  data:
+    mongodb:
+      host: localhost
+      port: 27017
+      database: log
+      auto-index-creation: true
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
+  jpa:
+    hibernate:
+      ddl-auto: create
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL8Dialect
+        show_sql: true
+        format_sql: true
+server:
+  port: 9090
